@@ -1,18 +1,29 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './pages/header/header.component';
+import { CalendarComponent } from './pages/calendar/calendar.component';
+import { TasksComponent } from './pages/tasks/tasks.component';
+import { MomentPipe } from './shared/moment.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    CalendarComponent,
+    TasksComponent,
+    MomentPipe,
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule
+    BrowserModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [
+    HeaderComponent,
+    CalendarComponent,
+    TasksComponent
+  ]
 })
 export class AppModule { }

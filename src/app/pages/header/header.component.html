@@ -1,0 +1,5 @@
+<header>
+	<button class="btn__left" (click)="go(-1)">prev</button>
+	<span>{{dateService.date | async | moment}}</span>
+	<button class="btn__right" (click)="go(1)">next</button>
+</header>
