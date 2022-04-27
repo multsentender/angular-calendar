@@ -30,24 +30,27 @@ export class CalendarComponent implements OnInit {
   generate(now : moment.Moment) {
     const startDate = now.clone().startOf('month').startOf('week')
     const endDate = now.clone().endOf('month').endOf('week')
-    const date = startDate.clone().subtract(1, 'day')
 
     const calendar = []
-    while(date.isBefore(endDate, 'day')) {
+    while(startDate.isBefore(endDate, 'day')) {
       calendar.push({
         days: Array(7)
           .fill(null)
           .map(() => {
-            const value = date.add(1, 'day').clone()
+            const value = startDate.add(1, 'day').clone()
             const current = moment().isSame(value, 'date')
             const disabled = !now.isSame(value, 'month')
-            const selected = now.isSame(value, 'date')
 
-            return {value, current, selected, disabled}
+            return {value, current, selected: current, disabled}
           })
       })
     }
 
     this.calendar = calendar
+  }
+
+  onSelect(day: moment.Moment) {
+    // console.log(day)
+    this.dateService.changeDate(day)
   }
 }

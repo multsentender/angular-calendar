@@ -1,3 +1,29 @@
+table{
+	margin: 0 auto;
+}
+thead{
+	background-color: rgb(240, 240, 240);
+}
+th{
+	padding: 8px 15px;
+}
+td{
+	padding: 4px;
+	text-align: center;
+	border: 1px solid rgb(196, 196, 196);
+	border-collapse: collapse;
+	cursor: pointer;
+	line-height: 1.2rem;
+}
+.disabled{
+	border: none;
+	background-color: rgb(240, 240, 240);
+	color: rgb(194, 194, 194);
+}
 .current{
-	color: tomato;
+	color: rgb(106, 170, 255);
+	font-weight: bold;
+}
+.selected{
+	background-color: rgb(236, 241, 255);
 }
